@@ -1,6 +1,6 @@
-const urlPost = 'https://my-json-server.typicode.com/khanhpro9889/json-server/posts';
-const urlComment = 'https://my-json-server.typicode.com/khanhpro9889/json-server/comments';
-const urlUser = 'https://my-json-server.typicode.com/khanhpro9889/json-server/users';
+const urlPost = 'https://jsonplaceholder.typicode.com/posts';
+const urlComment = 'https://jsonplaceholder.typicode.com/comments';
+
 async function getPost() {
     try {
     let response = await fetch(urlPost);
@@ -13,17 +13,7 @@ async function getPost() {
 
 async function getCommentByPost(idPost) {
     try {
-        let response = await fetch(`${urlComment}?id_post=${idPost}`);
-        let responseJson = await response.json();
-        return responseJson;
-    } catch (error) {
-    console.error(`Error is: ${error}`);
-    }
-}
-
-async function getUserById(idUser) {
-    try {
-        let response = await fetch(`${urlUser}/${idUser}`);
+        let response = await fetch(`${urlComment}?postId=${idPost}`);
         let responseJson = await response.json();
         return responseJson;
     } catch (error) {
@@ -33,4 +23,3 @@ async function getUserById(idUser) {
 
 export { getPost };
 export { getCommentByPost };
-export { getUserById };

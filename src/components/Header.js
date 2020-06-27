@@ -12,7 +12,7 @@ class Header extends Component {
         return (
             <div class="header ui violet message">
                 <h4>{post.title}</h4>
-                <div class="content">{post.content}</div>
+                <div class="content">{post.body}</div>
             </div>
         );
     }

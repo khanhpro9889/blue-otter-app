@@ -15,11 +15,11 @@ class ListItem extends Component {
         return (
             <Comment>
                 <Comment.Content>
-                    <Comment.Author as='a'>{comment.id_user.name}</Comment.Author>
+                    <Comment.Author as='a'>{comment.name}</Comment.Author>
                     <Comment.Metadata>
-                        <div>{comment.id_user.email}</div>
+                        <div>{comment.email}</div>
                     </Comment.Metadata>
-                    <Comment.Text>{comment.content}</Comment.Text>
+                    <Comment.Text>{comment.body}</Comment.Text>
                 </Comment.Content>
             </Comment>
             // <div class="list-item">

@@ -26,31 +26,13 @@ class App extends Component {
     let newArr = [];
     getPost()
     .then(res => {
+      this.setState({isLoading: false})
       const num = Math.floor(Math.random() * res.length);
       this.setState({post: res[num]});
       return getCommentByPost(res[num].id);
     })
     .then(res1 => {
-      console.log(res1);
-      res1.forEach(item => {
-        getUserById(item.id_user).then(res2 => {
-          console.log(res2);
-          const newItem = {
-            ...item,
-            id_user: res2
-          }
-          console.log(newItem);
-          newArr = [...newArr, newItem]
-          this.setState({
-              comments: newArr
-          });
-          this.setState({isLoading: false}); 
-        }).catch(error => {
-          console.log(error);
-          return null;
-        })
-      })
-      
+        this.setState({comments: res1})
     })
     .catch(err => {
       console.log(err);
